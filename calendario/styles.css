@@ -1,0 +1,281 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74acdf, #ffffff);
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+body.modo-infantil {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa502 25%, #ffd700 50%, #00d4ff 75%, #b19cd9 100%);
+}
+
+
+.controles-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.seccion-usuario {
+    flex: 1;
+    text-align: left;
+}
+
+.entrada-nombre {
+    padding: 8px 12px;
+    border: 2px solid #74acdf;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 150px;
+    transition: border-color 0.3s ease;
+}
+
+.entrada-nombre:focus {
+    border-color: #0033a0;
+    box-shadow: 0 0 5px rgba(116, 172, 223, 0.5);
+}
+
+body.modo-infantil .entrada-nombre {
+    border-color: #ff6b9d;
+    background-color: #fff9e6;
+}
+
+body.modo-infantil .entrada-nombre:focus {
+    border-color: #ffa502;
+    box-shadow: 0 0 8px rgba(255, 107, 157, 0.6);
+}
+
+.saludo {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #0033a0;
+    font-size: 14px;
+}
+
+body.modo-infantil .saludo {
+    color: #ff6b9d;
+    font-size: 16px;
+}
+
+
+.cambio-modo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.texto-modo {
+    font-weight: bold;
+    color: #0033a0;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+body.modo-infantil .texto-modo {
+    color: #ff6b9d;
+}
+
+
+.interruptor {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.interruptor input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.deslizador {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+
+.deslizador:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .deslizador {
+    background-color: #2196F3;
+}
+
+input:checked + .deslizador:before {
+    transform: translateX(26px);
+}
+
+body.modo-infantil .deslizador {
+    background-color: #ffa502;
+}
+
+body.modo-infantil input:checked + .deslizador {
+    background-color: #ff6b9d;
+}
+
+.titulo {
+    margin: 20px;
+    color: #0033a0;
+    transition: color 0.3s ease;
+}
+
+body.modo-infantil .titulo {
+    color: #ff6b9d;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(255, 165, 2, 0.3);
+}
+
+.calendario {
+    width: 350px;
+    margin: auto;
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+body.modo-infantil .calendario {
+    background: linear-gradient(135deg, #fff9e6 0%, #ffeccc 100%);
+    border: 5px solid #ff6b9d;
+    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+}
+
+.calendario-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendario-info button {
+    background: #74acdf;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.calendario-info button:hover {
+    background: #0033a0;
+    color: white;
+}
+
+body.modo-infantil .calendario-info button {
+    background: #ffa502;
+    border: 2px solid #ff6b9d;
+    font-size: 20px;
+    padding: 10px 15px;
+}
+
+body.modo-infantil .calendario-info button:hover {
+    background: #ff6b9d;
+    transform: scale(1.1);
+}
+
+.dias-semana, .dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-top: 10px;
+}
+
+.dias-semana div {
+    font-weight: bold;
+    color: #0033a0;
+    transition: color 0.3s ease;
+}
+
+body.modo-infantil .dias-semana div {
+    color: #ff6b9d;
+    font-size: 14px;
+}
+
+.dias div {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.dias div:hover {
+    background: #ddd;
+}
+
+body.modo-infantil .dias div {
+    border: 2px solid #ffd700;
+    font-weight: 600;
+}
+
+body.modo-infantil .dias div:hover {
+    background: #ffd700;
+    transform: scale(1.1);
+}
+
+
+.hoy {
+    background: #74acdf;
+    color: white;
+    font-weight: bold;
+}
+
+body.modo-infantil .hoy {
+    background: #00d4ff;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+}
+
+
+.feriado {
+    background: #ff4d4d;
+    color: white;
+    font-weight: bold;
+}
+
+body.modo-infantil .feriado {
+    background: #ff6b9d;
+    box-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+}
+
+
+.sugerencia {
+    visibility: hidden;
+    background: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.feriado:hover .sugerencia {
+    visibility: visible;
+}
